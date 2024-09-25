@@ -1,0 +1,245 @@
+/* quicksand-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/quicksand-v31-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* quicksand-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/quicksand-v31-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* quicksand-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/quicksand-v31-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* !css variables */
+:root {
+  --clr-neutral-100: 0 0% 98%;
+  --clr-neutral-200: 240 4% 40%;
+  --clr-neutral-300: 240 1% 31%;
+  --clr-neutral-400: 240 3% 53%;
+  --clr-neutral-500: 240 6% 10%;
+  --clr-neutral-900: 240 11% 7%;
+
+  --ff-body: "Quicksand", sans-serif;
+}
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+/* Code snuppet from Andy Bell Modern CSS Reset */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* sometimes referred to as .sr-only */
+.visually-hidden:not(:focus):not(:active):not(:focus-within) {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+*:focus-visible {
+  outline: 3px dotted hsl(var(--clr-neutral-500));
+  outline-offset: 5px;
+}
+
+/* !general styles */
+body {
+  font-family: var(--ff-body);
+  display: grid;
+  place-content: center;
+  min-height: 100dvh;
+  background-color: hsl(var(--clr-neutral-100));
+  margin-inline: 1rem;
+}
+
+/* !gradient styles */
+.gradient-background {
+  background: linear-gradient(
+    to right,
+
+    rgb(193, 228, 251) 40%,
+    rgb(216, 198, 251) 60%,
+    hsl(33, 80%, 88%) 70%
+  );
+  position: relative;
+  display: grid;
+  place-content: center;
+  height: inherit;
+
+  @media (min-width: 992px) {
+    height: 25rem;
+
+    background: linear-gradient(
+      to right,
+      hsl(0 0% 98%) 20%,
+      rgb(193, 228, 251) 40%,
+      rgb(216, 198, 251) 60%,
+      hsl(33, 80%, 88%) 70%,
+      hsl(0 0% 98%) 80%
+    );
+  }
+}
+
+/* !button styles */
+.button {
+  display: block;
+  font-weight: 500;
+  text-align: center;
+  color: currentColor;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  margin-block: 1rem;
+}
+
+/* header styles */
+header {
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+  padding-block: 2rem;
+
+  h1 {
+    color: hsl(var(--clr-neutral-500));
+  }
+
+  p {
+    color: hsl(var(--clr-neutral-200));
+  }
+}
+
+/* !testimonials styles */
+.testimonials {
+  display: grid;
+  gap: 1rem;
+  margin-block: 1rem;
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-content: center;
+    position: static;
+    margin-block: 0;
+  }
+}
+
+.testimonial-one,
+.testimonial-three {
+  box-shadow: 0 5px 15px rgb(0 0 0/ 0.1);
+}
+
+.testimonial {
+  background-color: hsl(var(--clr-neutral-100));
+  padding: 1rem;
+  max-width: 20rem;
+  display: grid;
+  gap: 1rem;
+
+  &::before {
+    content: "";
+    width: 36%;
+    height: 1rem;
+    display: block;
+    background-image: url("../images/star-solid.svg");
+    background-repeat: space;
+  }
+
+  blockquote {
+    color: hsl(var(--clr-neutral-500));
+  }
+
+  .testimonial-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+      border-radius: 50%;
+    }
+
+    p {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: hsl(var(--clr-neutral-500));
+    }
+    small {
+      color: hsl(var(--clr-neutral-200));
+    }
+  }
+}
